@@ -6,7 +6,7 @@ The Arithmetic Logic Unit created can be seen below.
 
 <p align="center">
   <img src="code/Practical_4/ALU_code/ALU.jpg" alt="ALU sketch"/>
-  <figcaption>ALU sketch</figcaption>
+  <figcaption align="center">ALU sketch</figcaption>
 </p>
 
 # Task Breakdown
