@@ -4,7 +4,7 @@ The VHDL programming language was used to construct a simple ALU. This was the l
 
 The Arithmetic Logic Unit created can be seen below.
 
-<figure align="center">>
+<figure align="center">
   <img src="code/Practical_4/ALU_code/ALU.jpg" alt="ALU sketch"/>
   <figcaption>ALU sketch</figcaption>
 </figure>
