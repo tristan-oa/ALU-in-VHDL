@@ -6,6 +6,7 @@ The Arithmetic Logic Unit created can be seen below.
 
 <p align="center">
   <img src="code/Practical_4/ALU_code/ALU.jpg" alt="ALU sketch"/>
+  <br>
   ALU sketch
 </p>
 
@@ -34,10 +35,11 @@ These practicals aimed to fulfill the following:
 - Practical 4:
 
   - Using the knowledge obtained from past practicals to design and implement a simple ALU having the following inputs and outputs.
-
+  
   <p align="center">
-    <img align="center" src="code/Practical_4/ALU_code/table.png">
-    Inputs and Ouputs for the ALU created
+    <img src="code/Practical_4/ALU_code/table.png" alt="ALU Inputs and Ouputs"/>
+    <br>
+    Inputs and Ouputs of the ALU created
   </p>
 
 # Documentation
