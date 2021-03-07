@@ -1,0 +1,331 @@
+--------------------------------------------------------------------------------
+-- Company: 
+-- Engineer:
+--
+-- Create Date:   13:56:01 01/10/2019
+-- Design Name:   
+-- Module Name:   /home/ise/Documents/Project4/ALU_tb.vhd
+-- Project Name:  Project4
+-- Target Device:  
+-- Tool versions:  
+-- Description:   
+-- 
+-- VHDL Test Bench Created by ISE for module: ALU
+-- 
+-- Dependencies:
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+-- Notes: 
+-- This testbench has been automatically generated using types std_logic and
+-- std_logic_vector for the ports of the unit under test.  Xilinx recommends
+-- that these types always be used for the top-level I/O of a design in order
+-- to guarantee that the testbench will bind correctly to the post-implementation 
+-- simulation model.
+--------------------------------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+USE ieee.numeric_std.ALL;
+ 
+ENTITY ALU_tb IS
+END ALU_tb;
+ 
+ARCHITECTURE behavior OF ALU_tb IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT ALU
+    PORT(
+         A : IN  std_logic_vector(7 downto 0);
+         B : IN  std_logic_vector(7 downto 0);
+         Cin : IN  std_logic;
+         Op : IN  std_logic_vector(3 downto 0);
+         Y : OUT  std_logic_vector(7 downto 0);
+         Cout : OUT  std_logic;
+         V : OUT  std_logic;
+         Z : OUT  std_logic;
+         S : OUT  std_logic
+        );
+    END COMPONENT;
+    
+
+   --Inputs
+   signal A : std_logic_vector(7 downto 0) := (others => '0');
+   signal B : std_logic_vector(7 downto 0) := (others => '0');
+   signal Cin : std_logic := '0';
+   signal Op : std_logic_vector(3 downto 0) := (others => '0');
+
+ 	--Outputs
+   signal Y : 	std_logic_vector(7 downto 0);
+   signal Cout : std_logic;
+   signal V : 	std_logic;
+   signal Z : 	std_logic;
+   signal S : 	std_logic;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: ALU PORT MAP (
+          A => A,
+          B => B,
+          Cin => Cin,
+          Op => Op,
+          Y => Y,
+          Cout => Cout,
+          V => V,
+          Z => Z,
+          S => S
+        );
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
+      -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #1 (ADD)
+		--Adding a + b only which should
+		--give a result of 2
+		
+		a <= "00000001";
+		b <= "00000001";
+		cin <= '0';
+		op <= "0000";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;
+		
+		--Test Case #2 (ADD)
+		--This should also give a result of 
+		--2 as Cin is not included in a
+		--normal ADD function 
+		
+		a <= "00000001";
+		b <= "00000001";
+		cin <= '1';
+		op <= "0000";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #3 (ADC)
+		--Adds operand a+b+cin together which
+		--should give a result of 7
+		--Cin is 0 in this case
+		
+		a <= "00000001";
+		b <= "00000110";
+		cin <= '0';
+		op <= "0001";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #4 (ADC)
+		--Testing the ADC function once again
+		--this time having cin = 1
+		--this should give an answer of 8
+		
+		a <= "00000001";
+		b <= "00000110";
+		cin <= '1';
+		op <= "0001";
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #5 (SUB)
+		--Subtracts b from a while ignoring cin
+		--should give a value of 55
+		
+		a <= "01110001";
+		b <= "00111010";
+		cin <= '0';
+		op <= "0010";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #6 (SUB)
+		--Testing again the SUB function with
+		--different values for a, b and cin
+		--It's aim is to test if the operation
+		--returns back negative numbers and to
+		--check what happens to the result 
+		--when cin = 1
+		--the answer should be -17
+		
+		a <= "00000001";
+		b <= "00010010";
+		cin <= '1';
+		op <= "0010";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;
+		
+		--Test Case #7 (SBB)
+		--This function subtracts b and cin from a
+		--This should give the answer of 70
+		
+		a <= "01100001";
+		b <= "00011010";
+		cin <= '1';
+		op <= "0011";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #8 (INC)
+		--This adds 1 to the value of a and ignores
+		--the values of b and cin
+		--This should give an answer of 2
+		
+		a <= "00000001";
+		b <= "00010111";
+		cin <= '1';
+		op <= "0100";	
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #9 (DEC)
+		--This subtracts 1 from the value of a and
+		--ignores the values of b and cin
+		--This should give an answer of 0
+		
+		a <= "00000001";
+		b <= "00000110";
+		cin <= '0';
+		op <= "0101";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #10 (NEG)
+		--Negates the value stored in a only
+		--Should give an answer of -25
+		
+		a <= "00011001";
+		b <= "00111111";
+		cin <= '1';
+		op <= "0110";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #11 (NOT)
+		--Turns the value of a into its bitwise
+		--complement and ignores b and cin
+		--The answer is -46
+		
+		a <= "00101101";
+		b <= "00111110";
+		cin <= '0';
+		op <= "0111";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #12 (AND)
+		--Performs the logic operation a and b
+		--cin is ignored
+		--Its answer should be 0 as the values 
+		--of a and b were carefully chosen
+		--to test what happens when 1 value is 1
+		--and the other is 0 for every n 
+		
+		a <= "10101001";
+		b <= "01010110";
+		cin <= '1';
+		op <= "1000";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #13 (AND)
+		--Testing further a and b, this time
+		--with different values for a and b
+		--answer should be 72
+		
+		a <= "11101001";
+		b <= "01011110";
+		cin <= '0';
+		op <= "1000";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #14 (AND)
+		--The last test for and in which
+		--overflow is being tested by
+		--turning both a and b into all 1s
+		--Being 8-bit addition, the value 
+		--would be too large to be computed
+		--into 8-bits thus returning an 
+		--incorrect value such as -1 instead
+		
+		a <= "11111111";
+		b <= "11111111";
+		cin <= '1';
+		op <= "1000";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #15 (OR)
+		--Performs the logic operation a or b
+		--cin is ignored
+		--Its answer should be -1 as the values 
+		--of a and b were carefully chosen
+		--to test what happens when 1 value is 1
+		--and the other is 0 for every n 
+		
+		a <= "01111101";
+		b <= "10000010";
+		cin <= '0';
+		op <= "1001";		
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #16 (OR)
+		--Testing a or b once more, this
+		--time with overflow
+		--As explained already, being 8-bit
+		--addition, the result would be too
+		--large to fit into just 8-bits
+		--and so an overflow occurs giving 
+		--the value of -1 once again
+		
+		a <= "11111111";
+		b <= "11111111";
+		cin <= '1';
+		op <= "1001";	
+		
+		 -- hold reset state for 50 ns.
+      wait for 50 ns;	
+		
+		--Test Case #17 (XOR)
+		--Testing the XOR operation in
+		--which the answer should be
+		--39 when computed
+		
+		a <= "01001101";
+		b <= "01101010";
+		cin <= '1';
+		op <= "1010";
+		
+		--being the last operation, the
+		--value returned back from this 
+		--operation is appended further
+		--until the end of the simulated
+		--model
+		
+
+      wait;
+   end process;
+
+END;
