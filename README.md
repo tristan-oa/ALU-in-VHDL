@@ -4,9 +4,10 @@ The VHDL programming language was used to construct a simple ALU. This was the l
 
 The Arithmetic Logic Unit created can be seen below.
 
-<img align="center" src="code/Practical_4/ALU_code/ALU.jpg">
-
-<p align="center">ALU sketch</p>
+<p align="center">
+  <img src="code/Practical_4/ALU_code/ALU.jpg">
+  ALU sketch
+</p>
 
 # Task Breakdown
 
@@ -34,7 +35,10 @@ These practicals aimed to fulfill the following:
 
   - Using the knowledge obtained from past practicals to design and implement a simple ALU having the following inputs and outputs.
 
-  <img align="center" src="code/Practical_4/ALU_code/table.png">
+  <p align="center">
+    <img align="center" src="code/Practical_4/ALU_code/table.png">
+    Inputs and Ouputs for the ALU created
+  </p>
 
 # Documentation
 
