@@ -1,6 +1,6 @@
 # Building an ALU using VHDL
 
-The VHDL programming language was used to construct a simple ALU. This was the last of 4 practicals for [CCE1013: Computer Logic 1](https://www.um.edu.mt/courses/studyunit/CCE1013), a course forming part of my BSc Computer Science.
+The VHDL programming language was used to construct a simple ALU. This was the last of 4 practicals for [CCE1013: Computer Logic 1](https://www.um.edu.mt/courses/studyunit/CCE1013), a course forming part of my B.Sc. in Computer Science.
 
 The Arithmetic Logic Unit created can be seen below.
 
