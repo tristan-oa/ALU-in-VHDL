@@ -44,7 +44,7 @@ These practicals aimed to fulfill the following:
 
 # Documentation
 
-Individual reports for every practical session can be found in the _code_ directory.
+Individual reports for every practical session can be found [here](https://github.com/tristan-oa/ALU-in-VHDL/tree/master/code).
 
 Each sub-directory contains a report titled _Assignment_SPECIFICATION.pdf_, which describes the design process requirements for the chosen practical.
 
